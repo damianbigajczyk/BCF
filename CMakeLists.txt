@@ -12,4 +12,9 @@ link_libraries(stdc++fs)
 
 add_executable(${PROJECT_NAME} my_WC.cpp)
 
+add_library(dirClass DirectoryInfo.cpp)
+
+target_link_libraries(${PROJECT_NAME} dirClass)
+
+
 
