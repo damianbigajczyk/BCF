@@ -13,10 +13,12 @@ int main( int argc, char **argv ) {
 	}
 	while (argc-- > 1) {
 		if (fs::is_regular_file(argv[argc]))
-			std::cout << argv[argc] << "is a regular file\n";
-		else if (fs::is_directory(argv[argc]))
-			std::cout << argv[argc] << "is a directory\n";
-		else
+			std::cout << argv[argc] << " is a regular file\n";
+		else if (fs::is_directory(argv[argc])) {
+			std::cout << argv[argc] << " is a directory\n";
+			for (auto const& dir_entry: fs::recursive_directory_iterator{argv[argc]})
+				std::cout << dir_entry << std::endl;
+		} else
 			std::cout << "neither\n";
 	}
 
