@@ -1,5 +1,5 @@
 #include "DirectoryInfo.hpp"
-
+#include <iostream>
 
 DirectoryInfo::DirectoryInfo() {
 	numOfFiles = 0;
@@ -12,6 +12,7 @@ DirectoryInfo::DirectoryInfo() {
 void DirectoryInfo::incrementNumOfFiles() {
 	++numOfFiles;
 }
+
 uint32_t DirectoryInfo::getNumOfFiles() {
 	return numOfFiles;
 }

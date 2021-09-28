@@ -26,10 +26,10 @@ int main( int argc, char **argv ) {
 	directoryStorage.reserve(argc-1);
 
 	for (int i = 1; i < argc; ++i) {
-		if (fs::is_regular_file( argv[i] ))
+		if (fs::is_regular_file( argv[i] )) {
 			std::cout << argv[i] << " is a regular file\n";
-
-		else if (fs::is_directory( argv[i] )) {
+			continue;
+		} else if (fs::is_directory( argv[i] )) {
 
 			DirectoryInfo nextDir{};
 
@@ -37,7 +37,6 @@ int main( int argc, char **argv ) {
 				state(directoryStorage[i], dir_entry.path());
 				std::cout << dir_entry << std::endl;
 			}
-
 		} else
 			std::cout << "neither\n";
 
